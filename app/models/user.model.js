@@ -28,14 +28,14 @@ var UserSchema = new Schema({
 
 UserSchema.pre('save',function(next){
     if(this.password){
-        console.log('password ' +this.password)
+        //console.log('password ' +this.password)
         
         this.salt = new Buffer(crypto.randomBytes(16).toString('base64'), 'base64');
-         console.log('salt ' +this.salt)
+         //console.log('salt ' +this.salt)
 
         this.password = this.hashPassword(this.password)
 
-        console.log('password hash ' + this.password)
+        //console.log('password hash ' + this.password)
     }
     next()
 })
