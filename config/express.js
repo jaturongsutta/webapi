@@ -17,6 +17,7 @@ module.exports  = function(){
     app.use(passport.initialize())
     app.use(passport.session())
 
+    app.use('/images', express.static(__dirname + '../../app/images'));
     
     require('../app/routes/index.routes')(app)
     require('../app/routes/user.routes')(app)
