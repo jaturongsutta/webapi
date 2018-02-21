@@ -1,0 +1,24 @@
+doctype html
+html
+    head
+        title = title
+    body
+        each msg in message
+            div.flash
+                = msg
+
+        form(name='signup',method='post', action="/signup")
+            div
+                label(for="username") Username
+                input(type="text",name='username',placeholder='Username')
+            div
+                label(for="firstname") First Name
+                input(type="text",name='firstName',placeholder='Firstname')
+            div 
+                label(for="lastname") Last Name
+                input(type="text",name='lastName',placeholder='Lastname')
+            div
+                label(for="password") Password
+                input(type="text",name='password',placeholder='Password')
+            div
+                input(type="submit", value='signup')

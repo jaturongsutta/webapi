@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title = title
+
+    body
+        if username
+            h2 Hello #{username}
+            div 
+                form(name='logout', method='post' action="/logout")
+                input(type='submit',value='Log out')
+
+        else
+            div 
+                a(href='/signup') Sign up
+            div
+                a(href='/login') Login
+
