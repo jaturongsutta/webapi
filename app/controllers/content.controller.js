@@ -8,3 +8,16 @@ exports.render = function(req,res){
      })
  
  }
+
+
+ 
+exports.apicontents = function(req,res){
+    Content.find({},function(err,content){
+        if(err){
+            return next(err)
+        }
+        else{
+            res.json(content);
+        }
+    })
+}
