@@ -11,7 +11,8 @@ exports.schema  = buildSchema(`
         companys : [Company]
         business : Business
         businesses : [Business]
-        booking : Booking
+        content : Content
+        contents : [Content]
     },
     type Branch {
         branch_id: Int
@@ -27,15 +28,22 @@ exports.schema  = buildSchema(`
         category_id: Int
         name: String
     },
-
+    type Content {
+        id: String
+        title: String
+        detail: String
+        page: String
+        group: String
+        img: String
+    },
 `);
 
 
 
 
 exports.root = {
-    // ...require('./branch/branch').branch,
-     ...require('./company/company').company,
+     ...require('./content').content,
+     ...require('./company').company,
     // ...require('./business/business').business,
 
 };

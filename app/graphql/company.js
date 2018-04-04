@@ -1,5 +1,5 @@
 
-require('../../models/content.model')
+require('../models/content.model')
 var Content  = require('mongoose').model('Content')
 
 var getcompany = async function() { 
