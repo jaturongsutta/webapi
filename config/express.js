@@ -3,6 +3,11 @@ var session = require('express-session');
 var bodyParser = require('body-parser')
 var passport = require('passport')
 var flash = require('connect-flash')
+var cors = require('cors')
+
+
+
+
 module.exports  = function(){
     var app  = express();
     
@@ -11,11 +16,15 @@ module.exports  = function(){
     resave: false, 
     saveUninitialized: false})) 
 
+
+    app.use(cors())
+
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
     app.use(flash())
     app.use(passport.initialize())
     app.use(passport.session())
+
 
     app.use('/images', express.static(__dirname + '../../app/images'));
     
