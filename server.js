@@ -7,7 +7,7 @@ var { buildSchema } = require('graphql');
 var passport = require('./config/passport')
 var path = require('path');
 var cors = require('cors')
-const schemaClass = require('./app/schema.js')
+const schemaClass = require('./graphql/schema.js')
 
 
 var db = mongoose()
