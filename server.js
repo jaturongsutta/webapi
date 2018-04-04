@@ -2,7 +2,8 @@ process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 var mongoose = require('./config/mongoose');
 var express = require('./config/express')
 var express_graphql = require('express-graphql');
-var  buildSchema  = require('graphql').buildSchema;
+//var  buildSchema  = require('graphql').buildSchema;
+var { buildSchema } = require('graphql');
 var passport = require('./config/passport')
 var path = require('path');
 var cors = require('cors')
@@ -19,9 +20,9 @@ app.set('view engine', 'jade');
 
 app.use(cors())
 app.use('/graphql', express_graphql({
-    schema: schemaClass.schema,
-    rootValue: schemaClass.root,
-    graphiql: true
+  schema: schemaClass.schema,
+  rootValue: schemaClass.root,
+  graphiql: true
 }));
 
 // Start the server
