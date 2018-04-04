@@ -1,5 +1,4 @@
-var express = require('express');
-var { buildSchema } = require('graphql');
+var  buildSchema  = require('graphql').buildSchema;
 
 
 
