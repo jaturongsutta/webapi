@@ -6,7 +6,8 @@ var  buildSchema  = require('graphql').buildSchema;
 var passport = require('./config/passport')
 var path = require('path');
 var cors = require('cors')
-const {schema ,root} = require('./app/schema.js')
+const schemaClass = require('./app/schema.js')
+
 
 var db = mongoose()
 var app = express()
@@ -18,8 +19,8 @@ app.set('view engine', 'jade');
 
 app.use(cors())
 app.use('/graphql', express_graphql({
-    schema: schema,
-    rootValue: root,
+    schema: schemaClass.schema,
+    rootValue: schemaClass.root,
     graphiql: true
 }));
 
