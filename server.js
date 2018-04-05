@@ -19,7 +19,7 @@ app.set('view engine', 'jade');
 
 app.use('/graphql', express_graphql({
   schema: schemaClass.schema,
-  rootValue: schemaClass.root,
+  // rootValue: schemaClass.root,
   graphiql: true
 }));
 
