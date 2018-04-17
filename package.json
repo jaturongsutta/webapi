@@ -20,6 +20,7 @@
     "body-parser": "^1.18.2",
     "connect-flash": "^0.1.1",
     "cors": "^2.8.4",
+    "ejs": "^2.5.8",
     "express": "^4.16.2",
     "express-graphql": "^0.6.12",
     "express-passport": "^0.1.0",

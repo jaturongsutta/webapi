@@ -1,7 +1,7 @@
 process.env.NODE_ENV = process.env.NODE_ENV || 'development'
 var mongoose = require('./config/mongoose');
 var express = require('./config/express')
-
+var EJS  = require('ejs');
 var passport = require('./config/passport')
 var path = require('path');
 var express_graphql = require('express-graphql');
@@ -12,9 +12,13 @@ var app = express()
 var passport = passport()
 
 app.set('views', path.join(__dirname, "app/views"));
-app.set('view engine', 'jade');
 
 
+
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+//app.set('views', './AdminLTE-2.4.3');
 
 
 app.use('/graphql', express_graphql({

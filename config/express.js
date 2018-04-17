@@ -4,6 +4,7 @@ var bodyParser = require('body-parser')
 var passport = require('passport')
 var flash = require('connect-flash')
 var cors = require('cors')
+var path = require('path');
 
 
 
@@ -15,6 +16,7 @@ module.exports  = function(){
     secret: 'asdfgj',
     resave: false, 
     saveUninitialized: false})) 
+    app.use(express.static(path.join(__dirname,'../AdminLTE-2.4.3')))
 
 
     app.use(cors())
@@ -27,6 +29,7 @@ module.exports  = function(){
 
 
     app.use('/images', express.static(__dirname + '../../app/images'));
+    app.use('/css', express.static(__dirname + '../../app/css'));
     
     require('../app/routes/index.routes')(app)
     require('../app/routes/user.routes')(app)

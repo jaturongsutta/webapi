@@ -1,5 +1,27 @@
 var User  = require('mongoose').model('User')
 
+exports.render = function(req,res){
+
+
+    User.find({},function(err,users){
+        if(err){
+            return next(err)
+        }
+        else{
+            //res.json(users)
+
+            res.render('user',{
+                title : "Hello World",
+                users: users
+            })
+        }
+
+
+
+    })
+
+ }
+
 exports.read = function(req,res){
      res.json(req.user)
 }
