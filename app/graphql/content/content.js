@@ -10,7 +10,7 @@ var query = {
             id: { type: graphql.GraphQLString }
         },
         resolve: async function (_, { id }) {
-            var data = await Content.findOne({});
+            var data = await Content.findOne({_id : id});
             return data;
         }
     },
