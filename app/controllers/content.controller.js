@@ -2,10 +2,17 @@ var Content  = require('mongoose').model('Content')
 
 exports.render = function(req,res){
     
-     res.render('content',{
-         title : "Hello World",
-
-     })
+    Content.find({},function(err,contents){
+        if(err){
+            return next(err)
+        }
+        else{
+            res.render('content',{
+                title : "Hello World",
+                contents 
+            })
+        }
+    })
  
  }
 

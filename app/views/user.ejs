@@ -19,7 +19,16 @@
 
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper"  >
-      <%= users %>
+      <!-- <%= users %> -->
+   
+      <% for(var i=0; i < users.length; i++) { %>
+        
+          <%= users[i].username %>
+          <%= users[i].firstName %>
+      
+      <% } %>
+      <!-- <%= users %> -->
+      
     </div>
   </div>
 

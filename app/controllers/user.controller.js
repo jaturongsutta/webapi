@@ -8,16 +8,11 @@ exports.render = function(req,res){
             return next(err)
         }
         else{
-            //res.json(users)
-
             res.render('user',{
                 title : "Hello World",
                 users: users
             })
         }
-
-
-
     })
 
  }

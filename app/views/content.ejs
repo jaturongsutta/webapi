@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Admin Note</title>
+
+  <% include ./partials/head %>
+
+
+</head>
+
+<body class="hold-transition skin-blue sidebar-mini">
+  <div class="wrapper">
+    <% include ./partials/header %>
+      <% include ./partials/sidebar %>
+
+
+
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+
+          <!-- Main content -->
+          <section class="content">
+
+            <% for(var i=0; i < contents.length; i++) { %>
+          
+              <%if (i %2 == 0) { %>
+               <div class="row">
+                <% } %>
+
+              <div class="col-md-6" >
+                <div class="box box-solid">
+                  <div class="box-header with-border">
+                    <h3 class="box-title">
+                      <%= contents[i].title %>
+                    </h3>
+                  </div>
+                  <div class="box-body">
+
+                    <div class="col-md-6">
+                        <img src='<%= contents[i].img  %>' width="100%" />
+                    </div>
+                    <div class="col-md-6">
+                        <dl>
+                            <dt>รายละเอียด</dt><dd><%= contents[i].detail %></dd>
+                            <dt>หน้าจอ</dt><dd><%= contents[i].page %></dd>
+                            <dt>กลุ่ม</dt><dd><%= contents[i].group %></dd>
+                        </dl>
+                    </div>
+      
+                  </div>
+                </div>
+              </div>
+              <%if (i %2 == 1) { %>
+              </div>
+                 <% } %>
+
+              <% } %>
+
+          </section>
+          <!-- /.content -->
+        </div>
+        <!-- /.content-wrapper -->
+
+  </div>
+  <!-- ./wrapper -->
+
+  <% include ./partials/footer %>
+
+</body>
+
+</html>
