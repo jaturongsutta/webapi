@@ -24,40 +24,56 @@
           <!-- Main content -->
           <section class="content">
 
+            <button id="btnNew" class="btn btn-primary">เพิ่ม</button>
+
             <% for(var i=0; i < contents.length; i++) { %>
-          
+
               <%if (i %2 == 0) { %>
-               <div class="row">
+                <div class="row">
+                  <% } %>
+
+                    <div class="col-md-12">
+                      <div class="box box-solid">
+                        <div class="box-header with-border">
+                          <h3 class="box-title">
+                            <%= contents[i].title %>
+                          </h3>
+                          <div class="pull-right box-tools">
+                            <button type="button" class="btn btn-default" onclick="edit('<%= contents[i].id %>')" >
+                              <i class="fa fa-edit"></i>Edit
+                            </button>
+                          </div>
+                        </div>
+                        <div class="box-body">
+
+                          <div class="col-md-6">
+                            <img src='<%= contents[i].img  %>' width="100%" />
+                          </div>
+                          <div class="col-md-6">
+                            <dl>
+                              <dt>รายละเอียด</dt>
+                              <dd>
+                                <%= contents[i].detail %>
+                              </dd>
+                              <dt>หน้าจอ</dt>
+                              <dd>
+                                <%= contents[i].page %>
+                              </dd>
+                              <dt>กลุ่ม</dt>
+                              <dd>
+                                <%= contents[i].group %>
+                              </dd>
+                            </dl>
+                          </div>
+
+                        </div>
+                      </div>
+                    </div>
+                    <%if (i %2 == 1) { %>
+                </div>
                 <% } %>
 
-              <div class="col-md-6" >
-                <div class="box box-solid">
-                  <div class="box-header with-border">
-                    <h3 class="box-title">
-                      <%= contents[i].title %>
-                    </h3>
-                  </div>
-                  <div class="box-body">
-
-                    <div class="col-md-6">
-                        <img src='<%= contents[i].img  %>' width="100%" />
-                    </div>
-                    <div class="col-md-6">
-                        <dl>
-                            <dt>รายละเอียด</dt><dd><%= contents[i].detail %></dd>
-                            <dt>หน้าจอ</dt><dd><%= contents[i].page %></dd>
-                            <dt>กลุ่ม</dt><dd><%= contents[i].group %></dd>
-                        </dl>
-                    </div>
-      
-                  </div>
-                </div>
-              </div>
-              <%if (i %2 == 1) { %>
-              </div>
-                 <% } %>
-
-              <% } %>
+                  <% } %>
 
           </section>
           <!-- /.content -->
@@ -70,5 +86,20 @@
   <% include ./partials/footer %>
 
 </body>
+
+<script>
+  $(document).ready(function () {
+    $('#btnNew').click(function () {
+      window.location = './content-info';
+    });
+
+  });
+
+  
+  function edit(id){
+      console.log(id)
+      window.location = './content-info/'+id;
+    }
+</script>
 
 </html>

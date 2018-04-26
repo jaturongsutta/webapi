@@ -30,6 +30,7 @@ module.exports  = function(){
 
     app.use('/images', express.static(__dirname + '../../app/images'));
     app.use('/css', express.static(__dirname + '../../app/css'));
+    app.use('/js', express.static(__dirname + '../../app/js'));
     
     require('../app/routes/index.routes')(app)
     require('../app/routes/user.routes')(app)
