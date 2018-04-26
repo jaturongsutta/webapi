@@ -17,7 +17,9 @@ exports.render = function (req, res) {
 }
 
 exports.renderInfo = function (req, res) {
-    console.log('renderInfo : ' +  req.content);
+
+    if ( typeof req.content === 'undefined' ) { req.content = {} }
+
     res.render('content-info', {
         title: "Hello World",
         content : req.content
@@ -68,7 +70,23 @@ exports.save = function (req, res, next) {
 
         return res.redirect('/content')
     })
+}
 
+exports.update =function(req,res,next){
+    console.log(req.content)
+    Content.findOneAndUpdate({_id:req.body._id},req.body,
+        function(err, content){
+            if(err){
+                console.log(err)         
+                
+                return next(err)
+            }
+            else{      
+                console.log('update success')         
+                res.json(content)
+            }
+        }
+    )
 }
 
 

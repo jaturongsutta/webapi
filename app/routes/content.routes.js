@@ -14,5 +14,6 @@ module.exports = function(app){
 
 
     app.post('/api/content/save', content.save)
+    app.post('/api/content/update', content.update)
 
 }

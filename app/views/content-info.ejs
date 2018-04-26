@@ -23,6 +23,7 @@
 
           <section class="content">
             <form>
+              <input type="hidden" name='_id' value="<%= content.id %>">
               <div class="box">
                 <div class="box-header">
                   <h3 class="box-title">Content</h3>
@@ -45,17 +46,17 @@
                   </div>
 
                   <div class="form-group">
-                      <label>Page</label>
-                      <select name="page" class="form-control">
-                          <option value="HOME" selected>HOME</option>
-                          <option value="Second">Second</option>
-                      </select>
-                    </div>
+                    <label>Page</label>
+                    <select name="page" class="form-control">
+                      <option value="HOME" selected>HOME</option>
+                      <option value="Second">Second</option>
+                    </select>
+                  </div>
                   <div class="form-group">
                     <label>Group</label>
                     <select name="group" class="form-control">
-                        <option value="HEADER">Header</option>
-                        <option value="BodySlite">BodySlite</option>
+                      <option value="HEADER">Header</option>
+                      <option value="BodySlite">BodySlite</option>
                     </select>
                   </div>
 
@@ -84,13 +85,20 @@
   $(document).ready(function () {
     $('#btnSave').click(function (e) {
       console.log('Client Save');
+      console.log($("form").serializeObject());
 
+      if ($('#_id').val() != '') {
+        uri = "/api/content/update";
+      }
+      else {
+        uri = "/api/content/save";
+      }
 
+      $.post(uri, $("form").serializeObject()).then(function(){
+        alert('Save Success');
+        window.location.reload();
+      });
 
-
-
-
-      $.post("api/content/save", $("form").serializeObject());
 
       e.preventDefault();
     });
