@@ -6,6 +6,7 @@ module.exports = function(){
 
     require('../app/models/user.model')
     require('../app/models/content.model')
+    require('../app/models/booking.model')
 
     return db;
 }

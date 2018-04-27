@@ -70,5 +70,17 @@ var queryType = new graphql.GraphQLObjectType({
     }
   });
 
+  var mutationType = new graphql.GraphQLObjectType({
+    name: 'Mutation',
+    fields: {
+      ...require('./booking/booking').mutation,
+      
+    }
+  });
 
-exports.schema =  new graphql.GraphQLSchema({query: queryType});
+  
+
+exports.schema =  new graphql.GraphQLSchema({
+  query: queryType,
+  mutation : mutationType,
+});

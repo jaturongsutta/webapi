@@ -48,15 +48,28 @@
                   <div class="form-group">
                     <label>Page</label>
                     <select name="page" class="form-control">
-                      <option value="HOME" selected>HOME</option>
-                      <option value="Second">Second</option>
-                    </select>
+                        <%
+                          var options = [ "HOME", "Second", "Page2", "Page3", "Page4", "Page5" ];
+                          for ( var i = 0; i < options.length; i++ )
+                          {
+                              var selected = ( content.page == options[i] ) ? "selected" : "";
+                              %>
+                          <option value="<%=options[ i ] %>" <%=selected %>><%=options[i] %></option>
+                          <%}%>
+                      </select>
+  
                   </div>
                   <div class="form-group">
                     <label>Group</label>
                     <select name="group" class="form-control">
-                      <option value="HEADER">Header</option>
-                      <option value="BodySlite">BodySlite</option>
+                      <%
+                        var options = [ "HEADER", "BodySlite", "Body2", "Body3", "Body4", "Body5" ];
+                        for ( var i = 0; i < options.length; i++ )
+                        {
+                            var selected = ( content.group == options[i] ) ? "selected" : "";
+                            %>
+                        <option value="<%=options[ i ] %>" <%=selected %>><%=options[i] %></option>
+                        <%}%>
                     </select>
                   </div>
 
@@ -94,7 +107,7 @@
         uri = "/api/content/save";
       }
 
-      $.post(uri, $("form").serializeObject()).then(function(){
+      $.post(uri, $("form").serializeObject()).then(function () {
         alert('Save Success');
         window.location.reload();
       });
