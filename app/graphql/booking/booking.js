@@ -34,7 +34,6 @@ var mutation = {
         },
         resolve: async function (_, { contentId , amount }) {
             var date = Date.now()
-            console.log(date)
             var jsonData = { contentId ,date , amount }
 
             var booking = new Booking(jsonData)
