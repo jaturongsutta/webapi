@@ -32,6 +32,14 @@ module.exports  = function(){
     app.use('/css', express.static(__dirname + '../../app/css'));
     app.use('/js', express.static(__dirname + '../../app/js'));
     
+
+    app.use('/www', express.static(__dirname + '../../www'));
+    
+    // app.get('/www',(req,res)=>{
+    //     res.render('../index');
+    // })
+
+
     require('../app/routes/index.routes')(app)
     require('../app/routes/user.routes')(app)
     require('../app/routes/content.routes')(app)
