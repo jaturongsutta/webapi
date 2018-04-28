@@ -6,7 +6,7 @@ var UserSchema = new Schema({
     lastName : String,
     username : {
         type: String,
-        unique : true,
+        // unique : true,
         required : 'User is required',
         trim : true
     },
@@ -14,6 +14,7 @@ var UserSchema = new Schema({
         type : String,
     },
     salt : String,
+    email : String,
     provider : {
         type : String,
         required : "Provider is required"
@@ -22,6 +23,14 @@ var UserSchema = new Schema({
     providerData:{
 
     },
+    picture : String,
+    gmcToken : String,
+    fcUserId : String,
+    fcToken : String,
+    fcExpiresIn : String,
+    createDate: { type: Date },
+    updateDate: { type: Date },
+    lastOnlineDate: { type: Date },
 })
 
 

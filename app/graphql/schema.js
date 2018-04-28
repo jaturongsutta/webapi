@@ -65,6 +65,7 @@ var queryType = new graphql.GraphQLObjectType({
     fields: {
       ...require('./company/company').query,
       ...require('./content/content').query,
+      ...require('./user/user').query,
      
       
     }
@@ -74,6 +75,7 @@ var queryType = new graphql.GraphQLObjectType({
     name: 'Mutation',
     fields: {
       ...require('./booking/booking').mutation,
+      ...require('./user/user').mutation,
       
     }
   });
